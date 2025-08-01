@@ -12,7 +12,7 @@ func SetupRouter() *gin.Engine {
 
 	buildGroup := r.Group("/builds")
 	{
-		buildGroup.POST("/", controller.Create)
+		buildGroup.POST("", controller.Create)
 		buildGroup.GET("/:id", controller.Get)
 		buildGroup.PUT("/:id", controller.Update)
 		buildGroup.DELETE("/:id", controller.Delete)
