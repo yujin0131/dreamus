@@ -1,6 +1,6 @@
-# 참고 : https://github.com/rickseven/dockerized-golang-mysql-api-sample/blob/master/docker-compose.yml
 services:
   dreamus:
+    container_name: dreamus
     build:
       context: .
       dockerfile: Dockerfile
@@ -12,19 +12,18 @@ services:
     env_file:
       - .env
     restart: unless-stopped
+
   mysql:
-    image: mysql:latest
+    image: mysql:8.0.43
     container_name: mysql
     restart: always
-    expose:
-      - '3306'
     ports:
       - "3306:3306"
     environment:
-      - MYSQL_USER=${MYSQL_USER}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-      - MYSQL_DATABASE=${MYSQL_DATABASE}
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
       - mysql_volume:/var/lib/mysql
     healthcheck:
@@ -34,3 +33,4 @@ services:
       retries: 5
 volumes:
   mysql_volume:
+    name: mysql_volume

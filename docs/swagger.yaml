@@ -1,0 +1,183 @@
+basePath: /
+definitions:
+  dreamus_internal_models.BadRequestError:
+    properties:
+      error:
+        example: invalid input
+        type: string
+    type: object
+  dreamus_internal_models.Build:
+    properties:
+      commit_id:
+        type: string
+      created_at:
+        type: string
+      docker_tag:
+        type: string
+      end_time:
+        type: string
+      id:
+        type: integer
+      start_time:
+        type: string
+      status:
+        type: string
+      updated_at:
+        type: string
+    required:
+    - commit_id
+    - docker_tag
+    - status
+    type: object
+  dreamus_internal_models.BuildUpdateInput:
+    properties:
+      docker_tag:
+        type: string
+      end_time:
+        type: string
+      start_time:
+        type: string
+      status:
+        type: string
+    type: object
+  dreamus_internal_models.InternalError:
+    properties:
+      error:
+        example: internal server error
+        type: string
+    type: object
+  dreamus_internal_models.NotFoundError:
+    properties:
+      error:
+        example: build not found
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: API for managing build metadata (commit, Docker tag, status)
+  title: Dreamus Build API
+  version: "1.0"
+paths:
+  /builds:
+    post:
+      consumes:
+      - application/json
+      description: Create a new build record
+      parameters:
+      - description: Build Info
+        in: body
+        name: build
+        required: true
+        schema:
+          $ref: '#/definitions/dreamus_internal_models.Build'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/dreamus_internal_models.Build'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dreamus_internal_models.BadRequestError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/dreamus_internal_models.InternalError'
+      summary: Create new build
+      tags:
+      - builds
+  /builds/{id}:
+    delete:
+      description: Delete a build by its ID
+      parameters:
+      - description: Build ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/dreamus_internal_models.NotFoundError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/dreamus_internal_models.InternalError'
+      summary: Delete a build
+      tags:
+      - builds
+    get:
+      description: Get a build record by its ID
+      parameters:
+      - description: Build ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dreamus_internal_models.Build'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/dreamus_internal_models.NotFoundError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/dreamus_internal_models.InternalError'
+      summary: Get a build by ID
+      tags:
+      - builds
+    put:
+      consumes:
+      - application/json
+      description: Update fields of an existing build
+      parameters:
+      - description: Build ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Updated Build Info
+        in: body
+        name: build
+        required: true
+        schema:
+          $ref: '#/definitions/dreamus_internal_models.BuildUpdateInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dreamus_internal_models.Build'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dreamus_internal_models.BadRequestError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/dreamus_internal_models.NotFoundError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/dreamus_internal_models.InternalError'
+      summary: Update a build
+      tags:
+      - builds
+schemes:
+- http
+swagger: "2.0"

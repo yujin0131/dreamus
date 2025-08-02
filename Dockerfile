@@ -7,8 +7,9 @@ COPY go.sum ./
 
 RUN go mod download
 
-COPY cmd/main.go cmd/main.go
-COPY internal/ internal/
+COPY cmd/main.go ./cmd/main.go
+COPY docs ./docs
+COPY internal ./internal
 
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o dreamus ./cmd/main.go
 
