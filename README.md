@@ -21,16 +21,16 @@ The service provides RESTful API endpoints to create, retrieve, update, and dele
 ```env
 PORT=8080
 
-DB_USER=dreamus
-DB_PASSWORD=dreamus123
+DB_USER=pipeline
+DB_PASSWORD=pipeline123
 DB_HOST=mysql
 DB_PORT=3306
-DB_NAME=dreamus_db
+DB_NAME=pipeline_db
 
-MYSQL_ROOT_PASSWORD=dreamusAdmin123
-MYSQL_DATABASE=dreamus_db
-MYSQL_USER=dreamus
-MYSQL_PASSWORD=dreamus123
+MYSQL_ROOT_PASSWORD=pipelineAdmin123
+MYSQL_DATABASE=pipeline_db
+MYSQL_USER=pipeline
+MYSQL_PASSWORD=pipeline123
 ```
 <br>
 

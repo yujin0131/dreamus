@@ -1,4 +1,4 @@
-IMG ?= dreamus:latest
+IMG ?= pipeline:latest
 
 CONTAINER_TOOL ?= docker
 

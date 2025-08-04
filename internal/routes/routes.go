@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"dreamus/internal/controllers"
+	"pipeline/internal/controllers"
 
 	"github.com/gin-gonic/gin"
 )

@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"dreamus/internal/db"
-	"dreamus/internal/models"
+	"pipeline/internal/db"
+	"pipeline/internal/models"
 	"errors"
 	"net/http"
 

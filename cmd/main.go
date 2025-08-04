@@ -1,4 +1,4 @@
-// @title Dreamus Build API
+// @title pipeline Build API
 // @version 1.0
 // @description API for managing build metadata (commit, Docker tag, status)
 // @host localhost:8080
@@ -7,12 +7,12 @@
 package main
 
 import (
-	_ "dreamus/docs"
+	_ "pipeline/docs"
 
-	"dreamus/internal/config"
-	"dreamus/internal/db"
-	"dreamus/internal/models"
-	"dreamus/internal/routes"
+	"pipeline/internal/config"
+	"pipeline/internal/db"
+	"pipeline/internal/models"
+	"pipeline/internal/routes"
 	"os"
 
 	"github.com/sirupsen/logrus"

@@ -5,7 +5,7 @@
     "swagger": "2.0",
     "info": {
         "description": "API for managing build metadata (commit, Docker tag, status)",
-        "title": "Dreamus Build API",
+        "title": "pipeline Build API",
         "contact": {},
         "version": "1.0"
     },
@@ -32,7 +32,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.Build"
+                            "$ref": "#/definitions/pipeline_internal_models.Build"
                         }
                     }
                 ],
@@ -40,19 +40,19 @@
                     "201": {
                         "description": "Created",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.Build"
+                            "$ref": "#/definitions/pipeline_internal_models.Build"
                         }
                     },
                     "400": {
                         "description": "Bad Request",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.BadRequestError"
+                            "$ref": "#/definitions/pipeline_internal_models.BadRequestError"
                         }
                     },
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.InternalError"
+                            "$ref": "#/definitions/pipeline_internal_models.InternalError"
                         }
                     }
                 }
@@ -81,19 +81,19 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.Build"
+                            "$ref": "#/definitions/pipeline_internal_models.Build"
                         }
                     },
                     "404": {
                         "description": "Not Found",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.NotFoundError"
+                            "$ref": "#/definitions/pipeline_internal_models.NotFoundError"
                         }
                     },
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.InternalError"
+                            "$ref": "#/definitions/pipeline_internal_models.InternalError"
                         }
                     }
                 }
@@ -124,7 +124,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.BuildUpdateInput"
+                            "$ref": "#/definitions/pipeline_internal_models.BuildUpdateInput"
                         }
                     }
                 ],
@@ -132,25 +132,25 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.Build"
+                            "$ref": "#/definitions/pipeline_internal_models.Build"
                         }
                     },
                     "400": {
                         "description": "Bad Request",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.BadRequestError"
+                            "$ref": "#/definitions/pipeline_internal_models.BadRequestError"
                         }
                     },
                     "404": {
                         "description": "Not Found",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.NotFoundError"
+                            "$ref": "#/definitions/pipeline_internal_models.NotFoundError"
                         }
                     },
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.InternalError"
+                            "$ref": "#/definitions/pipeline_internal_models.InternalError"
                         }
                     }
                 }
@@ -180,13 +180,13 @@
                     "404": {
                         "description": "Not Found",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.NotFoundError"
+                            "$ref": "#/definitions/pipeline_internal_models.NotFoundError"
                         }
                     },
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.InternalError"
+                            "$ref": "#/definitions/pipeline_internal_models.InternalError"
                         }
                     }
                 }
@@ -194,7 +194,7 @@
         }
     },
     "definitions": {
-        "dreamus_internal_models.BadRequestError": {
+        "pipeline_internal_models.BadRequestError": {
             "type": "object",
             "properties": {
                 "error": {
@@ -203,7 +203,7 @@
                 }
             }
         },
-        "dreamus_internal_models.Build": {
+        "pipeline_internal_models.Build": {
             "type": "object",
             "required": [
                 "commit_id",
@@ -237,7 +237,7 @@
                 }
             }
         },
-        "dreamus_internal_models.BuildUpdateInput": {
+        "pipeline_internal_models.BuildUpdateInput": {
             "type": "object",
             "properties": {
                 "docker_tag": {
@@ -254,7 +254,7 @@
                 }
             }
         },
-        "dreamus_internal_models.InternalError": {
+        "pipeline_internal_models.InternalError": {
             "type": "object",
             "properties": {
                 "error": {
@@ -263,7 +263,7 @@
                 }
             }
         },
-        "dreamus_internal_models.NotFoundError": {
+        "pipeline_internal_models.NotFoundError": {
             "type": "object",
             "properties": {
                 "error": {

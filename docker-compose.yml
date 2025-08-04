@@ -1,6 +1,6 @@
 services:
-  dreamus:
-    container_name: dreamus
+  pipeline:
+    container_name: pipeline
     build:
       context: .
       dockerfile: Dockerfile

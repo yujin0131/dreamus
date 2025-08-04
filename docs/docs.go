@@ -35,7 +35,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.Build"
+                            "$ref": "#/definitions/pipeline_internal_models.Build"
                         }
                     }
                 ],
@@ -43,19 +43,19 @@ const docTemplate = `{
                     "201": {
                         "description": "Created",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.Build"
+                            "$ref": "#/definitions/pipeline_internal_models.Build"
                         }
                     },
                     "400": {
                         "description": "Bad Request",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.BadRequestError"
+                            "$ref": "#/definitions/pipeline_internal_models.BadRequestError"
                         }
                     },
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.InternalError"
+                            "$ref": "#/definitions/pipeline_internal_models.InternalError"
                         }
                     }
                 }
@@ -84,19 +84,19 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.Build"
+                            "$ref": "#/definitions/pipeline_internal_models.Build"
                         }
                     },
                     "404": {
                         "description": "Not Found",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.NotFoundError"
+                            "$ref": "#/definitions/pipeline_internal_models.NotFoundError"
                         }
                     },
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.InternalError"
+                            "$ref": "#/definitions/pipeline_internal_models.InternalError"
                         }
                     }
                 }
@@ -127,7 +127,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.BuildUpdateInput"
+                            "$ref": "#/definitions/pipeline_internal_models.BuildUpdateInput"
                         }
                     }
                 ],
@@ -135,25 +135,25 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.Build"
+                            "$ref": "#/definitions/pipeline_internal_models.Build"
                         }
                     },
                     "400": {
                         "description": "Bad Request",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.BadRequestError"
+                            "$ref": "#/definitions/pipeline_internal_models.BadRequestError"
                         }
                     },
                     "404": {
                         "description": "Not Found",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.NotFoundError"
+                            "$ref": "#/definitions/pipeline_internal_models.NotFoundError"
                         }
                     },
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.InternalError"
+                            "$ref": "#/definitions/pipeline_internal_models.InternalError"
                         }
                     }
                 }
@@ -183,13 +183,13 @@ const docTemplate = `{
                     "404": {
                         "description": "Not Found",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.NotFoundError"
+                            "$ref": "#/definitions/pipeline_internal_models.NotFoundError"
                         }
                     },
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/dreamus_internal_models.InternalError"
+                            "$ref": "#/definitions/pipeline_internal_models.InternalError"
                         }
                     }
                 }
@@ -197,7 +197,7 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "dreamus_internal_models.BadRequestError": {
+        "pipeline_internal_models.BadRequestError": {
             "type": "object",
             "properties": {
                 "error": {
@@ -206,7 +206,7 @@ const docTemplate = `{
                 }
             }
         },
-        "dreamus_internal_models.Build": {
+        "pipeline_internal_models.Build": {
             "type": "object",
             "required": [
                 "commit_id",
@@ -240,7 +240,7 @@ const docTemplate = `{
                 }
             }
         },
-        "dreamus_internal_models.BuildUpdateInput": {
+        "pipeline_internal_models.BuildUpdateInput": {
             "type": "object",
             "properties": {
                 "docker_tag": {
@@ -257,7 +257,7 @@ const docTemplate = `{
                 }
             }
         },
-        "dreamus_internal_models.InternalError": {
+        "pipeline_internal_models.InternalError": {
             "type": "object",
             "properties": {
                 "error": {
@@ -266,7 +266,7 @@ const docTemplate = `{
                 }
             }
         },
-        "dreamus_internal_models.NotFoundError": {
+        "pipeline_internal_models.NotFoundError": {
             "type": "object",
             "properties": {
                 "error": {
@@ -284,7 +284,7 @@ var SwaggerInfo = &swag.Spec{
 	Host:             "localhost:8080",
 	BasePath:         "/",
 	Schemes:          []string{"http"},
-	Title:            "Dreamus Build API",
+	Title:            "Pipeline Build API",
 	Description:      "API for managing build metadata (commit, Docker tag, status)",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
